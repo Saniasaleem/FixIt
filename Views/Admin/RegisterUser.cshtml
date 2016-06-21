@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+
+    <br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Register User</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--Login Form-->
+                    <form id="Login-Form" action="/Admin/SubmitUserDetails" method="post">
+                        <div class="input-field">
+                            <input id="FirstName" type="text" class="form-control" name="FirstName" placeholder="First Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="LastName" type="text" class="form-control" name="LastName" placeholder="Last Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Username" type="text" class="form-control" name="Username" placeholder="Unique Username" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Email" type="email" class="form-control" name="Email" placeholder="Email Id" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Address" type="text" class="form-control" name="Address" placeholder="Address" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Country" type="text" class="form-control" name="Country" placeholder="Country" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="City" type="text" class="form-control" name="City" placeholder="City" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="PostalCode" type="text" class="form-control" name="PostalCode" placeholder="Postal Code" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Contact" type="text" class="form-control" name="Contact" placeholder="Contact Number" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="CNIC" type="text" class="form-control" name="CNIC" placeholder="CNIC" required="">
+                        </div>
+                        <!--Creation date-->
+                        <div class="input-field" style="visibility:hidden">
+                                <input id="register_date" class="form-control" type="datetime" name="CreationDate" value=@ViewBag.date />
+                        </div>
+                        
+                        <p>
+                            <input type="submit" class="btn btn-blue pull-right" value="Submit" id="login">
+                        </p>
+                    </form>
+                    <br /><br /><br />
+                </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br />
+</body>
+

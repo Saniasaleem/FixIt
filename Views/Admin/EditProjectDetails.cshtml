@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "EditProjects";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+@model NextStep.Models.Project
+
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+
+    <br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Edit Project Details</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--Login Form-->
+                    <form id="Login-Form" action="/Admin/EditProject?id=@Model.Id" method="post">
+                        @*<div class="input-field" style="visibility:hidden">
+                            <input id="Project_ID" type="text" class="form-control" name="Id" required="" value="@Model.Id">
+                        </div>*@
+                         <div class="input-field">
+                            <input id="ProjectName" type="text" class="form-control" name="Project_Name" placeholder="Project Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Username" type="text" class="form-control" name="Project_Holder" placeholder="Project Holder" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Description" type="text" class="form-control" name="Description" placeholder="Brief Description" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Firm" type="text" class="form-control" name="Firm" placeholder="Firm / Organization" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Address" type="text" class="form-control" name="Site_Address" placeholder="Site Address" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="PostalCode" type="text" class="form-control" name="Postal_Code" placeholder="Postal Code" required="">
+                        </div>
+                        <div class="input-field">
+                            <h4>Type of Project</h4>
+                            <input id="Type" type="radio" name="RadioBtn" value="Corporate" checked /> Corporate
+                            <input id="Type" type="radio" name="RadioBtn" value="Residential" /> Residential
+                        </div>
+                        <div>
+                            <h4>Project Commencement Date</h4>
+                            <p id="Project-Creation-Date">
+                                <input id="Project-Creation-Date" class="form-control" type="date" required name="Commencement_Date" />
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Project Completion Date</h4>
+                            <p id="Project-Completion-Date">
+                                <input id="Project-Creation-Date" class="form-control" type="date" required name="Completion_Date" />
+                            </p>
+                        </div>
+                        <!--Entry date-->
+                        <div>
+                            <p id="register_date" style="visibility:hidden">
+                                <input id="Edit_date" class="form-control" type="datetime" name="Entry_Date" value=@ViewBag.date />
+                            </p>
+                        </div>
+
+                        <p>
+                            <input type="submit" class="btn btn-blue pull-right" value="Submit" id="login">
+                        </p>
+                    </form>
+                    <br /><br /><br />
+                </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br />
+</body>
+

@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "AddProject";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Admin Profile</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--Related Actions Form-->
+                    <form id="Admin-Profile" action="action" method="post">
+
+                        <div>
+                            <p id="Register-User">
+                                <a class="btn btn-blue pull-left" href="/Admin/RegisterUser" id="Register-User" style="height:40px; width:150px;">Register User</a>
+                                <h4 style="text-align:center">If User is not already registred</h4>
+                            </p>
+                            <br />
+                        </div>
+                        <div>
+                            <p id="View-Clients">
+                                <a class="btn btn-blue pull-left" href="/Admin/ViewClients" id="View-Clients" style="height:40px; width:150px;">View Clients</a>
+                                <h4 style="text-align:center">View registered Clients.</h4>
+                            </p>
+                            <br />
+                        </div>
+                       
+                        <div>
+                            <p id="Add-Project">
+                                <a class="btn btn-blue pull-left" href="/Admin/AddProject" id="Add-Project" style="height:40px; width:150px;">Add Project</a>
+                                <h4 style="text-align:center">If User is already registred to our system</h4>
+                            </p>
+                            <br />
+                        </div>
+                        <div>
+                            <p id="View-Project">
+                                <a class="btn btn-blue pull-left" href="/Admin/ViewProjects" id="View-Projects" style="height:40px; width:150px;">View Projects</a>
+                                <h4 style="text-align:center">Click to view Projects' Details</h4>
+                            </p>
+                            <br />
+                        </div>
+                    </form>
+                    <br /><br /><br />
+                </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>

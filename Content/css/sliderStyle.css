@@ -1,0 +1,30 @@
+#slider{
+	padding:0; margin:0;
+}
+.body{
+    font-family:sans-serif;
+}
+
+#newsBar
+{
+    padding-top:1em;
+    padding-bottom:1em;
+}
+.news
+{
+    background-color:#00C7FC;
+    text-align:center;
+    color:white;
+    font-family:sans-serif;
+    font-style:initial;
+    font-size:12px;
+}
+
+.centerGap
+{
+    background-color:#fff200;
+    color: white;
+    text-align: center;
+    font-family:sans-serif;
+    line-height:40px;
+}

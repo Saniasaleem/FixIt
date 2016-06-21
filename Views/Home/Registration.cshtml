@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+
+    <!--Script to check Username availability-->
+    <script>
+        $(document).ready(function () {
+            $('#checking').hide();
+            $('#b1').click(function () {
+                var userName = $('#username').val();
+                $('#checking').show();
+                $.getJSON("/Home/CheckUserName?username=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <!--End of Script-->
+
+    <br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Sign Up</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--User Registeration Form-->
+                    <form id="Login-Form" action="/Home/RegisterAdmin" method="post">
+                        <div class="input-field">
+                            <input id="FirstName" type="text" class="form-control" name="FirstName" placeholder="First Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="LastName" type="text" class="form-control" name="LastName" placeholder="Last Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="username" type="text" class="form-control" name="username" placeholder="Username" required="">
+                            <br />
+                            <input type="button" id="b1" value="Check Username Availability" class="btn btn-blue pull-right" />
+                            <br />
+                            <div id="checking">Checking...</div>
+                            <div class="input-field"><p id="result"></p></div>
+                        </div>
+                        <div class="input-field">
+                            <input id="Password" type="password" class="form-control" name="Password" placeholder="Password" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Email" type="email" class="form-control" name="Email" placeholder="Email Id" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Address" type="text" class="form-control" name="Address" placeholder="Address" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Country" type="text" class="form-control" name="Country" placeholder="Country" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="City" type="text" class="form-control" name="City" placeholder="City" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="PostalCode" type="text" class="form-control" name="PostalCode" placeholder="Postal Code" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Contact" type="text" class="form-control" name="Contact" placeholder="Contact Number" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="CNIC" type="text" class="form-control" name="CNIC" placeholder="CNIC" required="">
+                        </div>
+                        <!--Creation date-->
+                        <div>
+                            <p id="register_date" style="visibility:hidden">
+                                <input id="register_date" type="datetime" name="CreationDate" value=@ViewBag.date />
+                            </p>
+                        </div>
+
+                        <p>
+                            <input type="submit" class="btn btn-blue pull-right" value="Submit" id="login">
+                        </p>
+                    </form>
+                    <br /><br /><br />
+                </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br />
+</body>
+

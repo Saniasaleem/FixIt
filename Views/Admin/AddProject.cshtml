@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "AddProject";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+    <!--Script to check Username availability-->
+    <script>
+        $(document).ready(function () {
+            $('#checking').hide();
+            $('#b1').click(function () {
+                var userName = $('#username').val();
+                $('#checking').show();
+                $.getJSON("/Admin/CheckUserName?username=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("Project Holder Exists.");
+                    }
+                    else {
+                        $('#result').text("Sorry there is no project holder with this Username.");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <!--End of Script-->
+
+    <br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Project Entry</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--Login Form-->
+                    <form id="Login-Form" action="/Admin/SubmitProject" method="post">
+                        <div class="input-field">
+                            <input id="ProjectName" type="text" class="form-control" name="ProjectName" placeholder="Project Name" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="username" type="text" class="form-control" name="username" placeholder="Project Holder" required="">
+                            <br />
+                            <input type="button" id="b1" value="Check Project Holder" class="btn btn-blue pull-right" />
+                            <br />
+                            <div id="checking">Checking...</div>
+                            <div class="input-field"><p id ="result"></p></div>
+                        </div>
+                        <div class="input-field">
+                            <input id="Description" type="text" class="form-control" name="Description" placeholder="Brief Description" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Firm" type="text" class="form-control" name="Firm" placeholder="Firm / Organization" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="Address" type="text" class="form-control" name="Address" placeholder="Site Address" required="">
+                        </div>
+                        <div class="input-field">
+                            <input id="PostalCode" type="text" class="form-control" name="PostalCode" placeholder="Postal Code" required="">
+                        </div>       
+                        <div class="input-field">
+                            <h4>Type of Project</h4>
+                            <input id="Type" type="radio" name="Corporate" value="Corporate" checked /> Corporate
+                            <input id="Type" type="radio" name="Corporate" value="Residential" /> Residential
+                        </div>
+                        <div>
+                                <h4>Project Commencement Date</h4>
+                                <p id="Project-Creation-Date">
+                                    <input id="Project-Creation-Date" class="form-control" type="date" required name="ProjectCreationDate" />
+                                </p>
+                            </div>
+                            <div>
+                                <h4>Project Completion Date</h4>
+                                <p id="Project-Completion-Date">
+                                    <input id="Project-Creation-Date" class="form-control" type="date" required name="ProjectCompletionDate" />
+                                </p>
+                            </div>
+                        <!--Entry date-->
+                        <div>
+                            <p id="register_date" style="visibility:hidden">
+                                <input id="register_date" class="form-control" type="datetime" name="CreationDate" value=@ViewBag.date />
+                            </p>
+                        </div>
+
+                        <p>
+                            <input type="submit" class="btn btn-blue pull-right" value="Submit" id="login">
+                        </p>
+                    </form>
+                    <br /><br /><br />
+                </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br />
+</body>
+

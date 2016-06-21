@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body style="background: url('../Images/bg.jpg'); height: 100px; width: auto;">
+    
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--Creating Heading-->
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Login</h2>
+                <p></p>
+            </div>
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+            <!--Crntre Div-->
+            <div class="col-md-8 wow fadeIn">
+                <div class="contact-form clearfix">
+                    <!--Login Form-->
+                    @using (Html.BeginForm("VerifyLogin", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        
+                    }
+                    @*@Html.BeginForm("VerifyLogin", "Home", FormMethod.Post)
+
+                    <div class="input-field inner-addon right-addon">
+                        @Html.TextBox("Username", "Username", new { @class = "form-Control" })
+                        @Html.ValidationMessage("Username", "", new { @class = "form-control" })
+                        <i class="glyphicon glyphicon-user"></i>
+                    </div>*@
+
+
+                        <form id="Login-Form" action="/Home/VerifyLogin" method="post">
+                            <div class="input-field inner-addon right-addon">
+                                <input id="Login-Username" type="text" class="form-control" name="Username" placeholder="Username" required="">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </div>
+                            <div class="input-field inner-addon right-addon">
+                                <input id="Login-Password" type="password" class="form-control" name="Password" placeholder="Password" required="">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            <p>
+                                Not a member?
+                                <a href="/Home/Registration" style=""><span class="glyphicon glyphicon-log-in"></span> Sign up now</a>
+                                <input type="submit" class="btn btn-blue pull-right" value="Login" id="login">
+                            </p>
+                        </form>
+                        <br /><br /><br />
+                    </div> <!-- end .contact-form -->
+            </div> <!-- .col-md-8 -->
+            <!--Side Div-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
